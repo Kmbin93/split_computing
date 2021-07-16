@@ -1,5 +1,23 @@
 # Split Computing
 
+## Demo
+![example](example.gif)
+
+## Server
+
+```
+usage: server.py [-h] [--split_layer_name SPLIT_LAYER_NAME] [--model_path MODEL_PATH] [--decoder DECODER]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --split_layer_name SPLIT_LAYER_NAME
+                        Target splitting layer name
+  --model_path MODEL_PATH
+                        DNN model path
+  --decoder DECODER     Type of encoder (JPEG or AE). JPEG - Use JPEG for encoding input frame. Note that JPEG does not work for intermediate output tensor of DNN. AE - Use AutoEncoder for encoding       
+                        input frame or intermediate output tensor of DNN.
+```
+
 ## Client
 
 ```
@@ -22,21 +40,6 @@ optional arguments:
   --encoder ENCODER     Type of encoder (JPEG or AE). JPEG - Use JPEG for encoding input frame. Note that JPEG does not work for intermediate output tensor of DNN. AE - Use AutoEncoder for encoding       
                         input frame or intermediate output tensor of DNN.
   --jpeg_qp JPEG_QP     JPEG quality factor. Default=90
-```
-
-## Server
-
-```
-usage: server.py [-h] [--split_layer_name SPLIT_LAYER_NAME] [--model_path MODEL_PATH] [--decoder DECODER]
-
-optional arguments:
-  -h, --help            show this help message and exit
-  --split_layer_name SPLIT_LAYER_NAME
-                        Target splitting layer name
-  --model_path MODEL_PATH
-                        DNN model path
-  --decoder DECODER     Type of encoder (JPEG or AE). JPEG - Use JPEG for encoding input frame. Note that JPEG does not work for intermediate output tensor of DNN. AE - Use AutoEncoder for encoding       
-                        input frame or intermediate output tensor of DNN.
 ```
 
 ## Example
