@@ -14,9 +14,6 @@ from tensorflow import keras
 
 from nvjpeg import NvJpeg
 
-HOST = '147.46.130.213'
-PORT = 8000
-
 encode_times = []
 inf_times = []
 recv_times = []
