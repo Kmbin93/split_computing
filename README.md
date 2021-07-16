@@ -1,7 +1,8 @@
 # Split Computing
 
 ## Client
-'''
+
+```
 usage: client.py [-h] --server_ip SERVER_IP [--port PORT] --file_name FILE_NAME [--model_path MODEL_PATH] [--split_layer_name SPLIT_LAYER_NAME] [--resize_factor RESIZE_FACTOR] [--encoder ENCODER]
                  [--jpeg_qp JPEG_QP]
 
@@ -21,10 +22,11 @@ optional arguments:
   --encoder ENCODER     Type of encoder (JPEG or AE). JPEG - Use JPEG for encoding input frame. Note that JPEG does not work for intermediate output tensor of DNN. AE - Use AutoEncoder for encoding       
                         input frame or intermediate output tensor of DNN.
   --jpeg_qp JPEG_QP     JPEG quality factor. Default=90
-'''
+```
 
 ## Server
-'''
+
+```
 usage: server.py [-h] [--split_layer_name SPLIT_LAYER_NAME] [--model_path MODEL_PATH] [--decoder DECODER]
 
 optional arguments:
@@ -35,10 +37,16 @@ optional arguments:
                         DNN model path
   --decoder DECODER     Type of encoder (JPEG or AE). JPEG - Use JPEG for encoding input frame. Note that JPEG does not work for intermediate output tensor of DNN. AE - Use AutoEncoder for encoding       
                         input frame or intermediate output tensor of DNN.
-'''
+```
 
 ## Example
+* Server
+```bash
  python server.py --model_path resnet50_classification.h5 --split_layer_name=conv3_block1_out --decoder=AE
+```
+* Client
+```bash
  python client.py --server_ip=147.46.130.213 --file_name=video_4k.mp4 --model_path=resnet50_classification.h5 --split_layer_name=conv3_block1_out --encoder=AE --resize_factor=0.5
+ ```
 
 
