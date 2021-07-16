@@ -1,8 +1,6 @@
 # Split Computing Testbed
 ![overview](overview.png)
 
-It is split
-
 ## Demo
 ![example](example.gif)
 
