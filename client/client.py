@@ -25,7 +25,9 @@ frame_sizes = []
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--file_name', type=str, default="video_4k.mp4", help="Input video source file name.")
+    parser.add_argument('--server_ip', type=str, required=True, help="Server IP")
+    parser.add_argument('--port', type=int, default=8000, help="Port number")
+    parser.add_argument('--file_name', type=str, help="Input video source file name.", required=True)
     parser.add_argument('--model_path', type=str, default=None, help='DNN model path')
     parser.add_argument('--split_layer_name', type=str, default=None, help='Target layer name for splitting the model.')
     resize_factor_opt = parser.add_argument('--resize_factor', type=float, default=1, 
@@ -39,13 +41,6 @@ if __name__ == '__main__':
                                     JPEG - Use JPEG for encoding input frame.
                                            Note that JPEG does not work for intermediate output tensor of DNN.
                                     AE - Use AutoEncoder for encoding input frame or intermediate output tensor of DNN.
-                                ''')
-    parser.add_argument('--model_input_shape', type=tuple,
-                            default=(224, 224), 
-                            help='''
-                                    Input shape of DNN model.
-                                    It should be tuple.
-                                    e.g., (224, 224)
                                 ''')
     parser.add_argument('--jpeg_qp', type=int, default=90, help="JPEG quality factor. Default=90")
     opt = parser.parse_args()
@@ -101,7 +96,7 @@ if __name__ == '__main__':
     # Network Connection
     print("[Network] Connect to Server...")
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    client_socket.connect((HOST, PORT))
+    client_socket.connect((opt.server_ip, opt.port))
 
     print("[Input] Start getting input video.")
     while True:
@@ -128,7 +123,7 @@ if __name__ == '__main__':
         # Do inference when split_layer_name exists
         inf_start = time.time()
         if opt.split_layer_name:
-            frame = cv2.resize(frame, opt.model_input_shape)
+            frame = cv2.resize(frame, (model.inputs[0].shape[1], model.inputs[0].shape[2]))
             frame = np.reshape(frame, (1, 224, 224, 3))
             frame = model.predict(frame)
         inf_end = time.time()
