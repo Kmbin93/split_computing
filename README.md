@@ -1,7 +1,13 @@
 # Split Computing
+![overview](overview.png)
 
 ## Demo
 ![example](example.gif)
+
+## Requirements
+* OpenCV
+* Tensorflow >=2.0
+* pynvjpeg
 
 ## Server
 
