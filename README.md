@@ -49,7 +49,7 @@ optional arguments:
 ```
 
 ## Example
-Download [ResNet50 model](https://drive.google.com/file/d/1LVxyvFq2ij-Ftg_TnZfRlWReLBJVVsfg/view?usp=sharing) and [AutoEncoder](https://drive.google.com/file/d/1nEHpVg3-pmT0ZVTpU6jSrrxa4-JV7VAU/view?usp=sharing) for running example
+Download [ResNet50 model](https://drive.google.com/file/d/1LVxyvFq2ij-Ftg_TnZfRlWReLBJVVsfg/view?usp=sharing) and [AutoEncoder](https://drive.google.com/file/d/1nEHpVg3-pmT0ZVTpU6jSrrxa4-JV7VAU/view?usp=sharing) for running example \br
 Download Example 4K Video [here](https://drive.google.com/file/d/1DtatEgwlCbqJMMtR6wtIU14oIGF5PAfJ/view?usp=sharing)
 
 * Server
